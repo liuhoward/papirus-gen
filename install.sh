@@ -69,33 +69,28 @@ rm -f papirus.tar.gz &&
 cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 
 
-cd ${SRC_DIR}/places
+cp -r --remove-destination 16x16/* ${THEME_DIR}/16x16/
+
+#bash ../svgscale.sh $size &&    # output is vague
+
 sizes=(22 24 32 48 64)
 for size in ${sizes[@]}
 do
-  bash ../svgscale.sh $size &&
-  cp -r ${size}/* ${THEME_DIR}/${size}x${size}/places/ &&
-  rm -rf ${size}
+  cp -r --remove-destination places/* ${THEME_DIR}/${size}x${size}/places/
 done
 
 
-cd ${SRC_DIR}/apps
 sizes=(16 22 24 32 48 64)
 for size in ${sizes[@]}
 do
-  bash ../svgscale.sh $size &&
-  cp -r ${size}/* ${THEME_DIR}/${size}x${size}/apps/ &&
-  rm -rf ${size}
+  cp -r --remove-destination apps/* ${THEME_DIR}/${size}x${size}/apps/
 done
 
 
-cd ${SRC_DIR}/mimetypes
 sizes=(16 22 24 32 48 64)
 for size in ${sizes[@]}
 do
-  bash ../svgscale.sh $size &&
-  cp -r ${size}/* ${THEME_DIR}/${size}x${size}/mimetypes/ &&
-  rm -rf ${size}
+  cp -r --remove-destination mimetypes/* ${THEME_DIR}/${size}x${size}/mimetypes/
 done
 
 
