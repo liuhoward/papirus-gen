@@ -69,7 +69,7 @@ rm -f papirus.tar.gz &&
 cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 
 
-cp -r --remove-destination 16x16/* ${THEME_DIR}/16x16/
+cp -r --remove-destination ./{16x16} ${THEME_DIR}/
 
 #bash ../svgscale.sh $size &&    # output is vague
 
@@ -98,7 +98,7 @@ cd ${SRC_DIR}
 
 
 cd ${dest}
-gtk-update-icon-cache ${name}${theme}
+gtk-update-icon-cache ${name}
 
 
 
