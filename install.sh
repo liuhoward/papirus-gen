@@ -1,5 +1,13 @@
 #!/bin/bash
 
+headline() {
+	printf "%b => %b%s\n" "\e[1;32m" "\e[0m" "$*"
+}
+
+msg() {
+	printf "%b [+] %b%s\n" "\e[1;33m" "\e[0m" "$*"
+}
+
 ROOT_UID=0
 DEST_DIR=
 
@@ -69,32 +77,38 @@ rm -f papirus.tar.gz &&
 cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 
 
+color="deepblue"
+cd ${SRC_DIR}/tools
+bash new-icon.sh places folder-${color} &&
+bash build_color_folders.sh ${THEME_DIR} &&
+find ./ -mindepth 2 -name '*.svg' -delete
+cd ${SRC_DIR}
 cp -r --remove-destination ./16x16/* ${THEME_DIR}/16x16/
 
-#bash ../svgscale.sh $size &&    # output is vague
 
-sizes=(22 24 32 48 64)
-for size in ${sizes[@]}
-do
-  cp -r --remove-destination places/* ${THEME_DIR}/${size}x${size}/places/
-done
+for size in 16x16 22x22 24x24 32x32 48x48 64x64; do
+	for prefix in "folder-$color" "user-$color"; do
+		for file_path in "${THEME_DIR}/$size/places/$prefix"{-*,}.svg; do
+			[ -f "$file_path" ] || continue  # is a file
+			[ -L "$file_path" ] && continue  # is not a symlink
 
+			file_name="${file_path##*/}"
+			symlink_path="${file_path/-$color/}"  # remove color suffix
 
-sizes=(16 22 24 32 48 64)
-for size in ${sizes[@]}
-do
-  cp -r --remove-destination apps/* ${THEME_DIR}/${size}x${size}/apps/
-done
-
-
-sizes=(16 22 24 32 48 64)
-for size in ${sizes[@]}
-do
-  cp -r --remove-destination mimetypes/* ${THEME_DIR}/${size}x${size}/mimetypes/
+			ln -sf "$file_name" "$symlink_path"
+		done
+	done
 done
 
 
 cd ${SRC_DIR}
+#bash ../svgscale.sh $size &&    # output is vague
+
+sizes=(16 22 24 32 48 64)
+for size in ${sizes[@]}
+do
+  cp -r --remove-destination {apps,mimetypes} ${THEME_DIR}/${size}x${size}/
+done
 
 
 cd ${dest}
