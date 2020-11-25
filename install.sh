@@ -80,7 +80,7 @@ cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 color="mcmojave"
 cd ${SRC_DIR}/tools
 bash new-icon.sh places folder-${color} &&
-bash build_color_folders.sh ${THEME_DIR} &&
+bash build_color_folders.sh ${THEME_DIR} ${color} &&
 find ./ -mindepth 2 -name '*.svg' -delete
 cd ${SRC_DIR}
 cp -r --remove-destination ./16x16/* ${THEME_DIR}/16x16/
