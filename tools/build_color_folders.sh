@@ -32,6 +32,7 @@ set -eo pipefail
 
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 TARGET_DIR="${1}"
+TARGET_COLOR="${2}"
 
 DEFAULT_COLOR="blue"
 SIZES_REGEX="(16x16|22x22|24x24|32x32|48x48|64x64)"
@@ -49,31 +50,31 @@ COLORS=(
 	# | name     | [0]   | [1]   | [2]   | [3]   |
 	# |----------|-------|-------|-------|-------|
 	[blue]="      #5294e2 #4877b1 #1d344f #e4e4e4"
-	#[black]="     #4f4f4f #3f3f3f #c2c2c2 #dcdcdc"
-	#[bluegrey]="  #607d8b #4d646f #222c31 #e4e4e4"
-	#[breeze]="    #57b8ec #147eb8 #106796 #e4e4e4"
-	#[brown]="     #ae8e6c #957552 #3d3226 #e4e4e4"
-	#[cyan]="      #00bcd4 #0096aa #00424a #e4e4e4"
-	#[deeporange]="#eb6637 #e95420 #522413 #e4e4e4"
-	#[green]="     #87b158 #60924b #2f3e1f #e4e4e4"
-	#[grey]="      #8e8e8e #727272 #323232 #e4e4e4"
-	#[indigo]="    #5c6bc0 #3f51b5 #202543 #e4e4e4"
-	#[magenta]="   #ca71df #b259b8 #47274e #e4e4e4"
-	#[orange]="    #ee923a #dd772f #533314 #e4e4e4"
-	#[palebrown]=" #d1bfae #bea389 #a38d7b #e4e4e4"
-	#[paleorange]="#eeca8f #c89e6b #917359 #e4e4e4"
-	#[pink]="      #f06292 #ec407a #542233 #e4e4e4"
-	#[red]="       #e25252 #bf4b4b #4f1d1d #e4e4e4"
-	#[teal]="      #16a085 #12806a #08382e #e4e4e4"
-	#[violet]="    #7e57c2 #5d399b #2c1e44 #e4e4e4"
-	#[white]="     #e4e4e4 #cccccc #4f4f4f #ffffff"
-	#[yaru]="      #676767 #973552 #e4e4e4 #ff7446"
-	#[yellow]="    #e2b322 #b58f1b #4f3e0c #e4e4e4"
-	#[nordic]="    #82abaa #6c9b9a #4e6766 #e4e4e4"
-	#[deepin]="    #6cccfc #6ac4ff #3ab0fc #e4e4e4"
-    #[marwaita]="    #0099ff #0082d8 #1d344f #e4e4e4"
+	[black]="     #4f4f4f #3f3f3f #c2c2c2 #dcdcdc"
+	[bluegrey]="  #607d8b #4d646f #222c31 #e4e4e4"
+	[breeze]="    #57b8ec #147eb8 #106796 #e4e4e4"
+	[brown]="     #ae8e6c #957552 #3d3226 #e4e4e4"
+	[cyan]="      #00bcd4 #0096aa #00424a #e4e4e4"
+	[deeporange]="#eb6637 #e95420 #522413 #e4e4e4"
+	[green]="     #87b158 #60924b #2f3e1f #e4e4e4"
+	[grey]="      #8e8e8e #727272 #323232 #e4e4e4"
+	[indigo]="    #5c6bc0 #3f51b5 #202543 #e4e4e4"
+	[magenta]="   #ca71df #b259b8 #47274e #e4e4e4"
+	[orange]="    #ee923a #dd772f #533314 #e4e4e4"
+	[palebrown]=" #d1bfae #bea389 #a38d7b #e4e4e4"
+	[paleorange]="#eeca8f #c89e6b #917359 #e4e4e4"
+	[pink]="      #f06292 #ec407a #542233 #e4e4e4"
+	[red]="       #e25252 #bf4b4b #4f1d1d #e4e4e4"
+	[teal]="      #16a085 #12806a #08382e #e4e4e4"
+	[violet]="    #7e57c2 #5d399b #2c1e44 #e4e4e4"
+	[white]="     #e4e4e4 #cccccc #4f4f4f #ffffff"
+	[yaru]="      #676767 #973552 #e4e4e4 #ff7446"
+	[yellow]="    #e2b322 #b58f1b #4f3e0c #e4e4e4"
+	[nordic]="    #82abaa #6c9b9a #4e6766 #e4e4e4"
+	[deepin]="    #6cccfc #6ac4ff #3ab0fc #e4e4e4"
+    [marwaita]="    #0099ff #0082d8 #1d344f #e4e4e4"
     [mcmojave]="    #36a7fc #39acfd #1d344f #e4e4e4"
-    #[bigsur]="    #65c3f1 #46a2d7 #1d344f #e4e4e4"
+    [bigsur]="    #65c3f1 #46a2d7 #1d344f #e4e4e4"
 )
 
 
@@ -135,6 +136,7 @@ find "$TARGET_DIR" -type f -regextype posix-extended \
 
 	for color in "${!COLORS[@]}"; do
 		[[ "$color" != "$DEFAULT_COLOR" ]] || continue
+        [[ "$color" == "$TARGET_COLOR" ]] || continue
 
 		new_file="${file/-$DEFAULT_COLOR/-$color}"
 
@@ -158,6 +160,8 @@ FOLDER_COLOR_MAP=(
 
 for mask in "${FOLDER_COLOR_MAP[@]}"; do
 	for color in "${!COLORS[@]}"; do
+        [[ "$color" == "$TARGET_COLOR" ]] || continue
+
 		IFS=" " read -ra icon_mask <<< "$mask"
 		folder_color_icon="${icon_mask[0]/COLOR/$color}"
 		icon="${icon_mask[1]/COLOR/$color}"
