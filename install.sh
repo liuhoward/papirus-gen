@@ -77,7 +77,7 @@ rm -f papirus.tar.gz &&
 cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 
 
-color="lightblue"
+color="mcmojave"
 cd ${SRC_DIR}/tools
 bash new-icon.sh places folder-${color} &&
 bash build_color_folders.sh ${THEME_DIR} &&
