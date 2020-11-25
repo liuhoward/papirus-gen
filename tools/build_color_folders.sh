@@ -70,9 +70,10 @@ COLORS=(
 	#[yaru]="      #676767 #973552 #e4e4e4 #ff7446"
 	#[yellow]="    #e2b322 #b58f1b #4f3e0c #e4e4e4"
 	#[nordic]="    #82abaa #6c9b9a #4e6766 #e4e4e4"
-	#[lightblue]="    #6cccfc #6ac4ff #3ab0fc #e4e4e4"
-    [lightblue]="    #36a7fc #39acfd #1d344f #e4e4e4"
-    [deepblue]="    #0099ff #0082d8 #1d344f #e4e4e4"
+	#[deepin]="    #6cccfc #6ac4ff #3ab0fc #e4e4e4"
+    #[marwaita]="    #0099ff #0082d8 #1d344f #e4e4e4"
+    [mcmojave]="    #36a7fc #39acfd #1d344f #e4e4e4"
+    #[bigsur]="    #65c3f1 #46a2d7 #1d344f #e4e4e4"
 )
 
 
