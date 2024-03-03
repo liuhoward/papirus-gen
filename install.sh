@@ -76,30 +76,36 @@ rm -f papirus.tar.gz &&
 
 cp -r /tmp/papirus-icon-theme-${papirus_version}/Papirus/* ${THEME_DIR}
 
-
-color="mcmojave"
-cd ${SRC_DIR}/tools
-bash new-icon.sh places folder-${color} &&
-bash build_color_folders.sh ${THEME_DIR} ${color} &&
-find ./ -mindepth 2 -name '*.svg' -delete
-cd ${SRC_DIR}
+#color="mcmojave"
+#cd ${SRC_DIR}/tools
+#bash new-icon.sh places folder-${color} &&
+#bash build_color_folders.sh ${THEME_DIR} ${color} &&
+#find ./ -mindepth 2 -name '*.svg' -delete
+#cd ${SRC_DIR}
 cp -r --remove-destination ./16x16/* ${THEME_DIR}/16x16/
 
+#for size in 16x16 22x22 24x24 32x32 48x48 64x64; do
+#	for prefix in "folder-$color" "user-$color"; do
+#		for file_path in "${THEME_DIR}/$size/places/$prefix"{-*,}.svg; do
+#			[ -f "$file_path" ] || continue  # is a file
+#			[ -L "$file_path" ] && continue  # is not a symlink
+#
+#			file_name="${file_path##*/}"
+#			symlink_path="${file_path/-$color/}"  # remove color suffix
+#
+#			ln -sf "$file_name" "$symlink_path"
+#		done
+#	done
+#done
 
-for size in 16x16 22x22 24x24 32x32 48x48 64x64; do
-	for prefix in "folder-$color" "user-$color"; do
-		for file_path in "${THEME_DIR}/$size/places/$prefix"{-*,}.svg; do
-			[ -f "$file_path" ] || continue  # is a file
-			[ -L "$file_path" ] && continue  # is not a symlink
-
-			file_name="${file_path##*/}"
-			symlink_path="${file_path/-$color/}"  # remove color suffix
-
-			ln -sf "$file_name" "$symlink_path"
-		done
-	done
+sizes=(22 24 32 48 64)
+for size in ${sizes[@]}; do
+  find ${THEME_DIR}/${size}x${size}/places/ -name 'folder-*.svg' -delete
+  find ${THEME_DIR}/${size}x${size}/places/ -name 'user-*.svg' -delete
+  cp -r --remove-destination places/${size}/* ${THEME_DIR}/${size}x${size}/places/
 done
 
+find ${THEME_DIR} -xtype l -delete
 
 cd ${SRC_DIR}
 #bash ../svgscale.sh $size &&    # output is vague
