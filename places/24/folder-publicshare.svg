@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24px"
+   height="24px"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg2223"
+   sodipodi:docname="user-public.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2225"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="43.875"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-width="3840"
+     inkscape:window-height="2095"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2223" />
+  <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2202">folder-home-24px</title>
+  <desc
+     id="desc2204">Created with Sketch.</desc>
+  <defs
+     id="defs2213">
+    <linearGradient
+       x1="11.631435"
+       y1="8.0829038"
+       x2="11.631435"
+       y2="25.403412"
+       id="linearGradient-1"
+       gradientTransform="scale(1.1547005,0.8660254)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#6AC4FF"
+         offset="0%"
+         id="stop2206" />
+      <stop
+         stop-color="#6CCDFC"
+         offset="96.2651467%"
+         id="stop2208" />
+      <stop
+         stop-color="#6AC4FF"
+         offset="100%"
+         id="stop2210" />
+    </linearGradient>
+  </defs>
+  <image
+     id="Bitmap"
+     x="1"
+     y="3"
+     width="22"
+     height="20"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAUCAYAAACJfM0wAAAABGdBTUEAA1teXP8meAAAAH9JREFUOBHtVUEKgDAMW9Vd/P9PPSrMZthQPE2pB6GFsCy62AXZpDwv0SWTYr4tbTo/FBgLXrICXxRes2d+hGlVbF68OPTd6zBbvfCSw4ONRZlaLzRH+9FVkRdbD3QXGH9SacxYM4qMggmQ/POv6Cc+9xBDGk42YOTmGP1kv6JOT/QJV1JD1mcAAAAASUVORK5CYII="
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Combined-Shape"
+     fill="#6ac4ff"
+     points="4,5 14,5 15,4 20,4 20,20.995132 4,20.995132 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="Rectangle-279"
+     fill="#ffffff"
+     points="3,21 3,6 21.000001,6 21.000001,21 "
+     style="fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <polygon
+     id="polygon2218"
+     fill="url(#linearGradient-1)"
+     points="2,22 2,7 22,7 22,22 "
+     style="fill:url(#linearGradient-1);fill-rule:evenodd;stroke:none;stroke-width:1" />
+  <path
+     d="m 11.201419,10.012148 c -0.726499,0 -1.8332806,0.66286 -1.8332806,1.421928 v 1.40617 c -0.133715,0 -0.187201,0.06421 -0.194414,0.334854 0.03029,0.453631 0.564821,0.937491 0.610317,1.043354 0.04528,0.105862 0.06037,0.483858 0.166228,0.816648 0.1058616,0.332678 0.1512806,1.239943 0.1512806,1.239943 -1.0952416,0.293507 -3.8408906,1.118988 -3.8408906,2.737104 h 3.550935 6.3305396 1.659064 c 0,-1.308297 -2.22,-1.975651 -3.105515,-2.213009 0,0 0.03657,-0.733512 0.122241,-1.002606 0.08544,-0.268983 0.09786,-0.574719 0.134592,-0.660386 0.03662,-0.08555 0.468756,-0.476779 0.49328,-0.843523 -0.0059,-0.218939 -0.04905,-0.270705 -0.157129,-0.270705 v -1.136966 c 0,-0.613867 -0.894769,-1.149726 -1.482183,-1.149726 -0.233939,0 -0.51625,0.0858 -0.771784,0.226916 v -0.527957 c 0,-0.759124 -1.106727,-1.421928 -1.83317,-1.421928 z m 1.284772,4.902955 c 0.08441,0.103114 0.160081,0.188466 0.174041,0.221068 0.03662,0.08566 0.04903,0.391402 0.134591,0.660385 0.04636,0.145566 0.07728,0.420653 0.09688,0.648467 -0.223109,-0.06863 -0.4269,-0.125991 -0.590809,-0.169912 0,0 0.04541,-0.907241 0.151281,-1.239942 0.01258,-0.03952 0.02381,-0.0798 0.03403,-0.120066 z"
+     opacity="0.15"
+     id="path31"
+     style="opacity:1;fill:#2ca7f8;fill-opacity:1;stroke-width:0.111;stroke-dasharray:none" />
+</svg>
